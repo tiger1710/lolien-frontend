@@ -3,15 +3,34 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Header from './ui/header/Header';
+import {
+  createBrowserRouter,
+  RouterProvider
+} from 'react-router-dom';
+import SignIn from './ui/onepirate/SignIn';
+import SignUp from './ui/onepirate/SignUp';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />
+  },
+  {
+    path: "/sign-in",
+    element: <SignIn />
+  },
+  {
+    path: "/sign-up",
+    element: <SignUp />
+  }
+])
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <Header />
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
